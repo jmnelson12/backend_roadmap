@@ -75,14 +75,70 @@ At this point the packet is ready to be transmitted through either:
 
 - covered below at [Browsers and how they work](#browsers-and-how-they-work?)
 
-## What is HTTP?
+## What is HTTP(1)?
 
-- https://github.com/alex/what-happens-when#http-protocol
-- https://daniel.haxx.se/http2/
+HyperText Transfer Protocol is an application-layer protocol for transmitting hypermedia documents.
+
+- follows a client-server model, where client opens a request, then waits until it receives a response
+- stateless protocol - meaning the server doesn't keep any data between the two requests
+
+### Things done to overcome latency pains
+
+- **Spriting** - combining many small images into one big image
+- **Inlining** - base64 in the css
+- **Concatenation** - combining js files together to send one file instead of many
+- **Sharding** - serving aspects of your service on as many different hosts as possible
+
+## What is HTTP(2)?
+
+- binary protocol
+- sends binary frames
+  - different frame types can be sent, but the all have the same setup
+    - Length, Type, Flags, Stream Identifier, frame payload
+- each frame is sent with a stream
+  - stream is an independent bi-directional sequence of frames exchanged between the client and server
+  - has a priority (or weight) which says which stream to consider most important
+- header compression (`HPACK`)
+- reset - change your mind with (`RST_STREAM`)
+- server push (or cache push)
+  - client asks for `x`, server knows that client will likely want `z` as well, and it sends to the client without being asked
 
 ## Browsers and how they work?
 
-- https://github.com/alex/what-happens-when#behind-the-scenes-of-the-browser
+- Once server supplies the resources (HTML, CSS, JS, images, etc) the browser
+
+  1. parses the HTML, CSS, and JS
+  2. Renders - Constructs the DOM Tree --> Render Tree --> Layout of Render Tree --> Paints the render tree
+
+**Browser High Level Structure**
+
+copied from https://github.com/alex/what-happens-when/blob/master/README.rst#behind-the-scenes-of-the-browser
+
+The components of the browsers are:
+
+* **User interface:** The user interface includes the address bar,
+  back/forward button, bookmarking menu, etc. Every part of the browser
+  display except the window where you see the requested page.
+* **Browser engine:** The browser engine marshals actions between the UI
+  and the rendering engine.
+* **Rendering engine:** The rendering engine is responsible for displaying
+  requested content. For example if the requested content is HTML, the
+  rendering engine parses HTML and CSS, and displays the parsed content on
+  the screen.
+* **Networking:** The networking handles network calls such as HTTP requests,
+  using different implementations for different platforms behind a
+  platform-independent interface.
+* **UI backend:** The UI backend is used for drawing basic widgets like combo
+  boxes and windows. This backend exposes a generic interface that is not
+  platform specific.
+  Underneath it uses operating system user interface methods.
+* **JavaScript engine:** The JavaScript engine is used to parse and
+  execute JavaScript code.
+* **Data storage:** The data storage is a persistence layer. The browser may
+  need to save all sorts of data locally, such as cookies. Browsers also
+  support storage mechanisms such as localStorage, IndexedDB, WebSQL and
+  FileSystem.
+
 
 ## DNS and how it works?
 
