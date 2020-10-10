@@ -142,6 +142,12 @@ The components of the browsers are:
 
 ## DNS and how it works?
 
+https://www.cloudflare.com/learning/dns/what-is-dns/#:~:text=DNS%20translates%20domain%20names%20to,IP%20addresses%20such%20as%20192.168.
+
 ## What is Domain Name?
 
+https://www.website.com/beginnerguide/domainnames/8/1/What-is-a-domain-name?.ws
+
 ## What is hosting?
+
+https://www.website.com/beginnerguide/webhosting/6/1/what-is-web-hosting?.ws
