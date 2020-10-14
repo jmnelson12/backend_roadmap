@@ -13,3 +13,7 @@ Take a look [here](./learn_a_language/getting_started.go)
 ## Tutorial: Create a module
 
 Take a look [here](./learn_a_language/call_external_package.go)
+
+## References
+
+- https://golang.org/

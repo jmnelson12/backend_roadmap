@@ -103,7 +103,7 @@ Skimmed this page: https://www.howtogeek.com/435903/what-are-stdin-stdout-and-st
 
 Skimmed through this: https://www.ece.uvic.ca/~itraore/elec567-13/notes/dist-03-4.pdf
 
-## Resources
+## References
 
 - https://launchschool.com/books/command_line/read/introduction
 - http://markburgess.org/os/os.pdf
