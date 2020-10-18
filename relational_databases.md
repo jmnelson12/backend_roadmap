@@ -53,29 +53,41 @@ https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ub
 > If no matching row is found we want some “empty values” to be substituted for the cities table's columns. This kind of query is called an `outer join`.
 
 > `left outer join` because the table mentioned on the left of the join operator will have each of its rows in the output at least once, whereas the table on the right will only have those rows output that match some row of the left table
-```sql
--- the first way is more commonly used
--- this
-SELECT w.city
-  , w.temp_lo
-  , w.temp_hi
-  , w.prcp
-  , w.date
-  , c.location
-FROM weather w, cities c
-WHERE c.name = w.city;
 
--- is the same as
-SELECT *
-FROM weather
-INNER JOIN cities
-  ON (weather.city = cities.name);
+> Without a qualification, `DELETE` will remove all rows from the given table, leaving it empty. The system will not request confirmation before doing this!
+
+> Making liberal use of views is a key aspect of good SQL database design. Views allow you to encapsulate the details of the structure of your tables, which might change as your application evolves, behind consistent interfaces.
+
+- How aggregate functions work: https://www.postgresql.org/docs/current/tutorial-agg.html
+
+
+```sql
+  -- the first way is more commonly used
+  -- this
+  SELECT w.city
+    , w.temp_lo
+    , w.temp_hi
+    , w.prcp
+    , w.date
+    , c.location
+  FROM weather w, cities c
+  WHERE c.name = w.city;
+
+  -- is the same as
+  SELECT *
+  FROM weather
+  INNER JOIN cities
+    ON (weather.city = cities.name);
 
 ```
+
+
+## More Parts
+- [Part II. The SQL Language](https://www.postgresql.org/docs/current/sql.html)
+- [Part III. Server Administration](https://www.postgresql.org/docs/current/admin.html)
+- [Part IV. Client Interfaces](https://www.postgresql.org/docs/current/client-interfaces.html)
 
 ## References
 
 - https://www.postgresql.org/about/
 - https://www.postgresql.org/docs/current/tutorial.html
-
-# Left off at https://www.postgresql.org/docs/current/tutorial-agg.html
