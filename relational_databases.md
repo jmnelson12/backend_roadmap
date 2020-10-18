@@ -19,9 +19,11 @@ PostgreSQL is an open source object-relational database system that uses and ext
 - Is much better at data types than the other DBMSs, with a more rich semantics, with geo-spatial types, complex numbers, etc.
 - It supports several methods of indexation, including B-trees, Genetic Algorithms based indexes, and GIN indexes that accelerates full-text searches.
 
-## TODO
+## Tutorial
 
-get a vm set up and go through the tutorial
+### How To Install PostgreSQL on Ubuntu 20.04 [Quickstart]
+
+https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
 
 ## References
 
